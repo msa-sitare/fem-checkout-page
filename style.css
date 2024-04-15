@@ -4,14 +4,13 @@ h2,
 h6,
 ul,
 li,
-p {
-  margin: 0;
-  padding: 0;
-}
-
+div,
+p,
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -65,7 +64,7 @@ main {
 
 .container {
   background-color: var(--container-color);
-  padding: 8px 8px 20px;
+  padding: 8px 12px 20px;
   border-radius: 8px;
   box-shadow: 2px 2px 4px var(--container-shadow);
 }
@@ -79,10 +78,17 @@ h6.container-name {
 .container-list {
   display: grid;
   grid-template-columns: 0.25fr 2fr 1fr;
+  padding: 12px 0px;
+  row-gap: 4px;
+}
+
+.container-list:not(:last-of-type) {
+  border-bottom: 2px solid var(--button);
 }
 
 .item-detail {
   grid-column: 2;
+  color: var(--container-dark);
 }
 
 .price {
@@ -125,4 +131,39 @@ h6.container-name {
   background-color: var(--container-color);
   border: 1px solid var(--container-dark);
   border-radius: 20px;
+}
+
+.total-container {
+  grid-column: 1/-1;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.total-info {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  margin: 20px;
+}
+
+.total-left p:last-of-type,
+.total-right p:last-of-type {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.total-left p,
+.total-right p {
+  margin: 8px 0;
+}
+button {
+  width: calc(100% - 40px);
+  background-color: var(--button);
+  border: none;
+  height: 36px;
+  border-radius: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  margin: 20px auto;
 }
